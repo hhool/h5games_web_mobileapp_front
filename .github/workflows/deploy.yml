@@ -26,6 +26,13 @@ jobs:
       - name: Show dist
         run: ls -la dist || true
 
+      - name: Prepare dist for deployment
+        run: |
+          mkdir -p dist
+          touch dist/.nojekyll
+          echo "Prepared dist/ with .nojekyll"
+          ls -la dist || true
+
       - name: Install Wrangler
         run: npm install -g wrangler
 
